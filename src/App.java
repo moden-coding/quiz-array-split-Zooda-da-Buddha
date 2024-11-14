@@ -39,8 +39,8 @@ public class App {
 
         //copyFrontAndBack example
         System.out.println("With input [1, 2, 3], you should get: [1, 3]. You got: " + Arrays.toString(copyFrontAndBack(new int[]{1,2,3})));
-        System.out.println("With input [1, 2, 3, 4], you should get: [1, 4]. You got: " + Arrays.toString(copyFrontAndBack(new int[]{1,2,3})));
-        System.out.println("With input [7], you should get: [7, 7]. You got: " + Arrays.toString(copyFrontAndBack(new int[]{1,2,3})));
+        System.out.println("With input [1, 2, 3, 4], you should get: [1, 4]. You got: " + Arrays.toString(copyFrontAndBack(new int[]{1,2,3,4})));
+        System.out.println("With input [7], you should get: [7, 7]. You got: " + Arrays.toString(copyFrontAndBack(new int[]{7})));
         
         //wordLength example
         System.out.println("With input \"Java is fun\" you should return 4. You got: " + maxWordLength("Java is fun"));
@@ -50,14 +50,45 @@ public class App {
 
     public static int[] copyFrontAndBack(int[] nums){
 
-        return null; //this is a placeholder
+        int[] frontAndBack = new int[2];
+
+        frontAndBack[0] = nums[0];
+
+        frontAndBack[1] = nums[nums.length - 1];
+
+        return frontAndBack; //this is a placeholder
 
     }
 
     public static int maxWordLength(String sentence){
+        
+        ArrayList<String> words = new ArrayList<>();
+
+        String smallStringF = sentence;
 
 
-        return -1; //this is a placeholder
+
+
+        while (true) {
+            
+
+            words.add(smallStringF.substring(0, sentence.indexOf(" ")));
+
+            smallStringF = smallStringF.substring(0, smallStringF.indexOf(" "));
+
+
+        }
+        
+        int greatest = 0;
+        for (String word: words) {
+
+
+            if(word.length() > greatest) {
+                greatest = word.length();
+            }
+        }
+
+        return greatest; //this is a placeholder
     }
 
 
